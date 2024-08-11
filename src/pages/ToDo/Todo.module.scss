@@ -1,0 +1,34 @@
+@import '../../styles/break-points.scss';
+
+.todoListContainer {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; 
+    padding: 20px;
+    box-sizing: border-box;
+  .mainContent {
+      width: 100%;
+      max-width: 1366px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 10px;
+    }
+
+  @include tablet {
+    padding: 20px;
+  }
+
+  @include laptop {
+
+  }
+
+  @include desktop {
+
+  }
+
+  @include desktop-large {
+
+  }
+}

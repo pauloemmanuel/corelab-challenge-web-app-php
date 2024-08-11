@@ -1,0 +1,54 @@
+@import './break-points.scss';
+
+$color-neutral:#9E9E9E;
+$color-white:#fff;
+$color-yellow: #FFA000;
+$color-yellow-light: #FFE3B3;
+$color-black-light: #333;
+
+$background-color:#f0f2f5;
+
+h1 {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  /* Fonte do título */
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: Inter, sans-serif;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #444;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+h3 {
+  font-family: Inter, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+h4{
+font-family: Inter, sans-serif;
+font-size: 0.8rem;
+  font-weight: 400;
+  color: #464646;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.text-start{
+  text-align: start;
+}
+
+.container{
+  max-width: 1366px;
+  display: flex;
+      width: 100%;
+  justify-content: center;
+}

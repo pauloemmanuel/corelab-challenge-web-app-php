@@ -1,5 +1,5 @@
 import Button from "./Button";
 import Card from "./Card";
-import Search from "./Search";
+import SearchBar from "./SearchBar";
 
-export { Button, Card, Search };
+export { Button, Card, SearchBar };

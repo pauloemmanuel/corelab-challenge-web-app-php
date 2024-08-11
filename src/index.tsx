@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.module.scss';
-import VehiclesPage from './pages/Vehicles';
+import TodoPage from './pages/ToDo';
 import reportWebVitals from './reportWebVitals';
+import './styles/global.scss'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <VehiclesPage />
+    <TodoPage />
   </React.StrictMode>
 );
 

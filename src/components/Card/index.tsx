@@ -11,7 +11,7 @@ const Card = (props: ICard) => {
     <div className={styles.Card}>
       <h2>{props.title}</h2>
 
-      <div className={styles.content}>{props.children}</div>
+      <div >{props.children}</div>
     </div>
   );
 };

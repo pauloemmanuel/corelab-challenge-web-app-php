@@ -1,0 +1,190 @@
+@import '../../../styles/break-points.scss';
+@import '../../../styles/global.scss';
+
+.note-card {
+  background-color: #fff;
+  border-radius: 6%;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 16px;
+  width: 270px;
+  height: 340px;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 6px;
+  @include tablet {
+    max-width: 390px;
+    width: 100%;
+    height: 440px;
+  }
+
+    .color-pallete {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  
+      @include desktop-large {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+    .color-pallete--small {
+      grid-template-columns: repeat(6, 1fr); 
+    }
+  .color-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 14px;
+
+  @include tablet {
+    padding: 5px 16px;
+  }
+}
+
+.note-title {
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  background-color: transparent;
+  color: #333;
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  margin-left: -20px;
+  @include tablet{
+    margin-left: inherit;
+  }
+}
+
+.favorite-button_checked {
+  color: #{$color-yellow};
+  padding: 2px;
+  width: 24px;
+  height: 24px;
+
+  &>path {
+    stroke: black;
+    stroke-width: 2px;
+  }
+}
+
+.favorite-button:hover {
+  color: #{$color-yellow};
+  filter: brightness(0.9);
+}
+
+.note-content__container {
+  width: 100%;
+  padding: 2px 16px;
+  height: 100%;
+}
+
+.note-content {
+  width: 100%;
+  height: 100%;
+  max-height: 440px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-radius: 8px;
+  overflow: auto;
+  resize: none;
+
+  @include laptop {
+    max-width: 400px;
+  }
+
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+}
+
+.note-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding: 8px;
+}
+
+.note-actions__edit-actions,
+.note-actions__delete-actions {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.color-pallete {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+}
+
+.edit-button,
+.delete-button,
+.color-button,
+.save-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin: 4px;
+  margin-bottom: 0;
+  color: #888;
+}
+
+.color-button {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+.color-button img {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 2px;
+}
+
+.color-button:hover,.edit-button:hover {
+  background-color: #{$color-yellow-light};
+  border-radius: 50%;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.save-button:hover {
+  color: #333;
+  padding: 2px;
+  margin-top: 2px;
+}

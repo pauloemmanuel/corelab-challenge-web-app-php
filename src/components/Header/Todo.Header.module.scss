@@ -1,0 +1,80 @@
+@import '../../styles/break-points.scss';
+@import '../../styles/global.scss';
+
+.header {
+  
+  background-color: #{$color-white};
+    justify-content: center;
+    display: flex;
+        border-bottom: 1px solid #ddd;
+                padding: 1rem;
+  .headerContainer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      
+      @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+  }
+
+  .titleContainer {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 1rem; 
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  .logo {
+    width: 40px;
+    margin-right: 1rem;
+    margin-bottom: 3.5px;
+    @include tablet {
+      width: 40px;
+    }
+
+    @include laptop {
+      width: 40px;
+    }
+  }
+
+  .title {
+    font-size: 1.4rem; 
+
+    @include tablet {
+      font-size: 1.2rem;
+    }
+
+    @include laptop {
+      font-size: 1.4rem;
+    }
+
+    @include desktop {
+      font-size: 1.4rem;
+    }
+
+    @include desktop-large {
+      font-size: 1.4em;
+    }
+  }
+
+  .searchBarContainer {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    @include tablet {
+      margin-left: 1.5rem;
+      width: 100%;
+      max-width: 50vw;
+    }
+    @include laptop{
+      max-width: 520px;
+    }
+   
+  }
+}
