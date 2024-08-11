@@ -5,8 +5,11 @@ import { getNotes, createNote, updateNote, deleteNote, toggleFavorite } from '..
 import styles from './NoteCardManager.module.scss';
 import { INoteCard } from '../../../types/INoteCard';
 
+interface NoteCardManagerProps {
+  searchQuery: string;
+}
 
-const NoteCardManager: React.FC = () => {
+const NoteCardManager: React.FC<NoteCardManagerProps> = ({ searchQuery }) => {
   const [notes, setNotes] = useState<INoteCard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingMessage, setLoadingMessage] = useState<string>('');
@@ -33,7 +36,7 @@ const NoteCardManager: React.FC = () => {
     setLoading(true);
     setLoadingMessage('Adicionando nota...');
     try {
-      const newNote = await createNote({ id:0,title, content, isFavorite, color: '#fff' });
+      const newNote = await createNote({ id: 0, title, content, isFavorite, color: '#fff' });
       setNotes([...notes, newNote]);
     } catch (error) {
       alert('Erro ao criar nota');
@@ -125,8 +128,13 @@ const NoteCardManager: React.FC = () => {
     }
   };
 
-  const favoriteNotes = notes.filter(note => note.isFavorite);
-  const otherNotes = notes.filter(note => !note.isFavorite);
+  const filteredNotes = notes.filter(note =>
+    note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    note.content.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const favoriteNotes = filteredNotes.filter(note => note.isFavorite);
+  const otherNotes = filteredNotes.filter(note => !note.isFavorite);
 
   return (
     <div className={styles['note-card-manager']}>
@@ -138,7 +146,7 @@ const NoteCardManager: React.FC = () => {
           </div>
         </div>
       )}
-      <div style={{marginTop:'15px'}}></div>
+      <div style={{ marginTop: '15px' }}></div>
       <AddCard onAddCard={addNote} />
 
       <div className={styles['note-list-section']}>

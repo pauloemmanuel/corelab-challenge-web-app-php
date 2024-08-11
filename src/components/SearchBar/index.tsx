@@ -1,33 +1,25 @@
-import React from "react";
-import styles from "./SearchBar.module.scss";
-import { FaSearch, FaTimes } from "react-icons/fa";
+import React from 'react';
+import styles from './SearchBar.module.scss';
 
-interface ISearchBar {
-  placeholder: string;
-  value: string;
-  onChange: (value: string) => void; 
+interface SearchBarProps {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 }
 
-const SearchBar: React.FC<ISearchBar> = ({ placeholder, value, onChange }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
-
-  const clearSearch = () => {
-    onChange("");
+const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
   };
 
   return (
     <div className={styles.searchBar}>
       <input
         type="text"
-        value={value}
-        onChange={handleChange}
-        placeholder={placeholder}
+        placeholder="Pesquisar notas..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+        className={styles.input}
       />
-      <button onClick={clearSearch}>
-        {value ? <FaTimes /> : <FaSearch />}
-      </button>
     </div>
   );
 };
